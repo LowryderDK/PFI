@@ -1,5 +1,7 @@
 package snake02;
 
+
+
 public class Point 
 {
 	

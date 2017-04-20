@@ -15,7 +15,7 @@ public class Snake
 	List<Point> snakePoints; 
 	int xDir, yDir;
 	boolean isMoving, elongate;	//setting direction with booleans so snake can only move in one dir at once
-	final int SIZE = 20, STARTX = 150, STARTY = 150;	//Setting start size and position of snake
+	final int STARTSIZESIZE = 20, STARTX = 150, STARTY = 150;	//Setting start size and position of snake
 	
 	
 	public Snake()		//Constructor - starts by snake not moving
@@ -26,7 +26,7 @@ public class Snake
 		isMoving = false;
 		elongate = false;
 		snakePoints.add (new Point(STARTX, STARTY));
-		for( int i = 1; i < SIZE; i++)
+		for( int i = 1; i < STARTSIZESIZE; i++)
 		{
 			snakePoints.add(new Point(STARTX - i * 4, STARTY));
 		}
@@ -124,6 +124,11 @@ public class Snake
 	public int getY() //Y Position of head of snake
 	{
 		return snakePoints.get(0).getY();
+	}
+	
+	public void setElongate(boolean b) 
+	{
+		elongate = b;
 	}
 
 }

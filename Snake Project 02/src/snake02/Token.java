@@ -42,16 +42,19 @@ public class Token {
 		int snakeX = snake.getX() +2;	//Returns x position of head of snake
 		int snakeY = snake.getY() +2;
 		
-		if (snakeX >= x-1 && snakeX <= (y + 7))	//Compairing x value of snake to x value of token
-		{
+		if (snakeX >= x-1 && snakeX <= (x + 7))	//Comparing x value of snake to x value of token
+		
 			if (snakeY >= y-1 && snakeY <= (y + 7))
 			{
 				changePosition();
 				score++;
+				snake.setElongate(true);
 				return true;
-			}
+			
 		}
 				return false;
 		
 	}
 }
+
+

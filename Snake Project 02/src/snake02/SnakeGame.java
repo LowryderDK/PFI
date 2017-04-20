@@ -1,3 +1,5 @@
+//based on tutorial: https://www.youtube.com/watch?v=9eQJAWhRHQg&t=1617s
+
 package snake02;
 
 import java.applet.Applet;
@@ -10,53 +12,51 @@ import java.awt.event.KeyListener;
 
 //This application controls size of the application, its background and controls
 
-
-public class SnakeGame extends Applet implements Runnable, KeyListener
+//implements runnable means starting a thread
+public class SnakeGame extends Applet implements Runnable, KeyListener		
 {
 	
 	Graphics gfx;
 	Image img;		//Image class instance img
 	Thread thread;
 	Snake snake;
-	Token token;
 	boolean gameOver;
-	
+	Token token;
 	
 	public void init() //Initiates window
 	{	
 		this.resize(400, 400); //Setting window size
+		gameOver = false;
 		img = createImage(400, 400);	//Creating image with same size as application
 		gfx = img.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
+		token = new Token(snake);
 		thread = new Thread(this);
 		thread.start();
-		gameOver = false;
+		
 	}
 	
 	//this one has graphics
 	public void paint (Graphics g)
 	{
-		g.setColor(Color.black);	//Sets color of background to black
-		g.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
-		snake.draw(gfx);
+		gfx.setColor(Color.black);	//Sets color of background to black
+		gfx.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
 		
 		if(!gameOver)
 		{
-			snake.move();
-			this.checkGameOVer();
-			
 			snake.draw(gfx);
+			token.draw(gfx);
+			
 		}
-		
-		else{
+		else
+		{
 			gfx.setColor(Color.RED);
 			gfx.drawString("Game Over",  180, 150);
 			gfx.drawString("Score:" + token.getScore(), 180, 170);
 		}
 		
-		g.drawImage(img, 0, 0, null);
-		
+		g.drawImage(img, 0, 0, null);		
 		
 	}
 	
@@ -78,15 +78,14 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		for(;;)		//Infinite for-loop
 		{
 			
-			if(!gameOver) {
+			if(!gameOver) 
+			{
 				snake.move();
 				this.checkGameOVer();
 				token.snakeCollision();
+				this.repaint();
 
-				
 			}
-			
-			this.repaint();
 			
 			try
 			{
@@ -106,6 +105,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 			gameOver = true;
 		if (snake.getY() < 0 || snake.getY() > 396)
 			gameOver = true;
+		
 		if (snake.snakeCollision())
 		{
 			gameOver = true;
@@ -113,7 +113,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	}
 	
 	
-	public void keyPressed(KeyEvent e) 	//Enables the keypressed functionality in program
+	public void keyPressed(KeyEvent e) 	//Enables the keyPressed functionality in program
 	{
 		if(!snake.isMoving()) //If snake is not moving, we are going to start moving it
 		{
@@ -146,8 +146,8 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		{
 			if(snake.getXdir() != 1) 
 			{
-				snake.setYdir(1);
-				snake.setXdir(0);
+				snake.setXdir(-1);
+				snake.setYdir(0);
 			}	
 		}
 		
