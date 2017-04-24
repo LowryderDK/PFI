@@ -1,3 +1,5 @@
+//Denne klasse styrer pointers!
+
 package snake02;
 
 
