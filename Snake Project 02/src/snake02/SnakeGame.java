@@ -20,6 +20,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	
 	Graphics graphics;	//Using library to create a graphics variable
 	Image canvas;		//Image class instance canvas
+	Image canvas2;
 	Thread thread;
 	Snake snake;
 	boolean gameOver;
@@ -27,9 +28,10 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	
 	public void init() //Initiates window,  method from the Applet class
 	{	
-		this.resize(400, 400); //Setting window size
+		this.resize(600, 400); //Setting window size
 		gameOver = false;
 		canvas = createImage(400, 400);	//Creating image with same size as application
+		
 		graphics = canvas.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
