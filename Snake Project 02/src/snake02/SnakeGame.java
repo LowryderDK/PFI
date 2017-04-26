@@ -18,7 +18,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 {
 	
 	Graphics gfx;	//Using library to create a graphics variable
-	Image img;		//Image class instance img
+	Image canvas;		//Image class instance img
 	Thread thread;
 	Snake snake;
 	boolean gameOver;
@@ -28,8 +28,8 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	{	
 		this.resize(400, 400); //Setting window size
 		gameOver = false;
-		img = createImage(400, 400);	//Creating image with same size as application
-		gfx = img.getGraphics();
+		canvas = createImage(400, 400);	//Creating image with same size as application
+		gfx = canvas.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
 		token = new Token(snake);
@@ -57,7 +57,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 			gfx.drawString("Score:" + token.getScore(), 180, 170);
 		}
 		
-		g.drawImage(img, 0, 0, null);		
+		g.drawImage(canvas, 0, 0, null);		
 		
 	}
 	
