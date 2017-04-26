@@ -7,21 +7,21 @@ import java.awt.Graphics;
 
 public class Food {
 	
-	private int x, y, score;
+	private int xPos, yPos, score;
 	private Snake snake;
 	
 	public Food(Snake s)	//
 	{
-		x = (int) (Math.random() * 395);
-		y = (int) (Math.random() * 395);
+		xPos = (int) (Math.random() * 395);
+		yPos = (int) (Math.random() * 395);
 		snake = s;
 		
 	}
 	
 	public void changePosition() 
 	{
-		x = (int) (Math.random() * 395);
-		y = (int) (Math.random() * 395);
+		xPos = (int) (Math.random() * 395);
+		yPos = (int) (Math.random() * 395);
 		
 	}
 
@@ -34,7 +34,7 @@ public class Food {
 	public void draw (Graphics g) 
 	{
 		g.setColor(Color.green);
-		g.fillRect(x, y, 6, 6);
+		g.fillRect(xPos, yPos, 6, 6);
 	}
 
 	public boolean snakeCollision() 
@@ -42,9 +42,9 @@ public class Food {
 		int snakeX = snake.getX() +2;	//Returns x position of head of snake
 		int snakeY = snake.getY() +2;
 		
-		if (snakeX >= x-1 && snakeX <= (x + 7))	//Comparing x value of snake to x value of token
+		if (snakeX >= xPos-1 && snakeX <= (xPos + 7))	//Comparing x value of snake to x value of token
 		
-			if (snakeY >= y-1 && snakeY <= (y + 7))
+			if (snakeY >= yPos-1 && snakeY <= (yPos + 7))
 			{
 				changePosition();
 				score++;
