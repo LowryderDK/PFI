@@ -12,18 +12,18 @@ import java.awt.event.KeyListener;
 ///lalallalala
 //This application controls size of the application, its background and controls
 
-//implements runnable means starting a thread
+//implements runnable means using thread
 public class SnakeGame extends Applet implements Runnable, KeyListener		
 {
 	
 	Graphics gfx;	//Using library to create a graphics variable
-	Image canvas;		//Image class instance img
+	Image canvas;		//Image class instance canvas
 	Thread thread;
 	Snake snake;
 	boolean gameOver;
 	Food food;
 	
-	public void init() //Initiates window
+	public void init() //Initiates window,  method from the Applet class
 	{	
 		this.resize(400, 400); //Setting window size
 		gameOver = false;
@@ -37,8 +37,8 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		
 	}
 	
-	//this one has graphics
-	public void paint (Graphics g)
+	//this one has graphics. 
+	public void paint (Graphics g) //
 	{
 		gfx.setColor(Color.black);	//Sets color of background to black
 		gfx.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
@@ -83,7 +83,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 				snake.move();
 				this.checkGameOVer();
 				food.snakeCollision();
-				this.repaint();
+				this.repaint(); //Updates the window graphics
 
 			}
 			
