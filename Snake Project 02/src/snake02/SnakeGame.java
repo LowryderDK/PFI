@@ -180,5 +180,5 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	
 }
 
-//Fed pik
+//Fed pik 2
 	
