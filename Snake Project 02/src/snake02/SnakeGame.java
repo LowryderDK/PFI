@@ -9,6 +9,8 @@ import java.awt.Image;		//Image class library
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+//Vicky er for sej
+//yiiiiir
 
 //This application controls size of the application, its background and controls
 
@@ -18,7 +20,6 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	
 	Graphics graphics;	//Using library to create a graphics variable
 	Image canvas;		//Image class instance canvas
-	Image canvas2;
 	Thread thread;
 	Snake snake;
 	boolean gameOver;
@@ -43,6 +44,8 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	{
 		graphics.setColor(Color.black);	//Sets color of background to black
 		graphics.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
+		g.setColor(Color.GREEN);
+		g.fillRect(400, 0, 200, 400);
 		
 		if(!gameOver)
 		{
