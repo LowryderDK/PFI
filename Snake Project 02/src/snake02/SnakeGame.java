@@ -31,7 +31,6 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		this.resize(600, 400); //Setting window size
 		gameOver = false;
 		canvas = createImage(400, 400);	//Creating image with same size as application
-		
 		graphics = canvas.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
