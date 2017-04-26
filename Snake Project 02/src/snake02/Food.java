@@ -48,7 +48,7 @@ public class Food {
 			{
 				changePosition();
 				score++;
-				snake.setElongate(true);
+				snake.setCanAddSquare(true);
 				return true;
 			
 		}
@@ -56,5 +56,9 @@ public class Food {
 		
 	}
 }
+
+
+
+
 
 

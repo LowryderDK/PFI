@@ -18,7 +18,7 @@ import java.awt.event.KeyListener;
 public class SnakeGame extends Applet implements Runnable, KeyListener		
 {
 	
-	Graphics gfx;	//Using library to create a graphics variable
+	Graphics graphics;	//Using library to create a graphics variable
 	Image canvas;		//Image class instance canvas
 	Thread thread;
 	Snake snake;
@@ -30,7 +30,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		this.resize(400, 400); //Setting window size
 		gameOver = false;
 		canvas = createImage(400, 400);	//Creating image with same size as application
-		gfx = canvas.getGraphics();
+		graphics = canvas.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
 		food = new Food(snake);
@@ -42,20 +42,20 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	//this one has graphics. 
 	public void paint (Graphics g) //
 	{
-		gfx.setColor(Color.black);	//Sets color of background to black
-		gfx.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
+		graphics.setColor(Color.black);	//Sets color of background to black
+		graphics.fillRect(0, 0, 400, 400);	//Fills whole window with black from top left
 		
 		if(!gameOver)
 		{
-			snake.draw(gfx);
-			food.draw(gfx);
+			snake.draw(graphics);
+			food.draw(graphics);
 			
 		}
 		else
 		{
-			gfx.setColor(Color.RED);
-			gfx.drawString("Game Over",  180, 150);
-			gfx.drawString("Score:" + food.getScore(), 180, 170);
+			graphics.setColor(Color.RED);
+			graphics.drawString("Game Over",  180, 150);
+			graphics.drawString("Score:" + food.getScore(), 180, 170);
 		}
 		
 		g.drawImage(canvas, 0, 0, null);		

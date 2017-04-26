@@ -15,7 +15,7 @@ public class Snake
 	
 	List<Point> snakePoints; 
 	int xDir, yDir;
-	boolean isMoving, elongate;	//setting direction with booleans so snake can only move in one dir at once
+	boolean isMoving, CanAddSquare;	//setting direction with booleans so snake can only move in one dir at once
 	final int STARTSIZESIZE = 20, STARTX = 150, STARTY = 150;	//Setting start size and position of snake
 	
 	
@@ -25,7 +25,7 @@ public class Snake
 		xDir = 0;
 		yDir = 0;
 		isMoving = false;
-		elongate = false;
+		CanAddSquare = false;
 		snakePoints.add (new Point(STARTX, STARTY));
 		for( int i = 1; i < STARTSIZESIZE; i++)
 		{
@@ -57,9 +57,9 @@ public class Snake
 			snakePoints.set(i, snakePoints.get(i - 1));
 		}
 		snakePoints.set(0, newStart);
-		if (elongate) {
+		if (CanAddSquare) {
 			snakePoints.add(last); //adds another snakePoint to the last Point
-			elongate = false;	   // and resets elongate to false.
+			CanAddSquare = false;	   // and resets CanAddSquare to false.
 		}
 		
 
@@ -127,9 +127,9 @@ public class Snake
 		return snakePoints.get(0).getY();
 	}
 	
-	public void setElongate(boolean b) // If b is true - elongate is true (which happens in the Token class, when there is collision)
+	public void setCanAddSquare(boolean b) // If b is true - CanAddSquare is true (which happens in the Token class, when there is collision)
 	{
-		elongate = b;
+		CanAddSquare = b;
 	}
 
 }
