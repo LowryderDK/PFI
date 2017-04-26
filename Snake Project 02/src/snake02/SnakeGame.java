@@ -1,5 +1,4 @@
 //based on tutorial: https://www.youtube.com/watch?v=9eQJAWhRHQg&t=1617s
-//Test
 
 package snake02;
 
@@ -22,7 +21,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	Thread thread;
 	Snake snake;
 	boolean gameOver;
-	Token token;
+	Food food;
 	
 	public void init() //Initiates window
 	{	
@@ -32,7 +31,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		gfx = canvas.getGraphics();
 		this.addKeyListener(this);
 		snake = new Snake();
-		token = new Token(snake);
+		food = new Food(snake);
 		thread = new Thread(this);
 		thread.start();
 		
@@ -47,14 +46,14 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 		if(!gameOver)
 		{
 			snake.draw(gfx);
-			token.draw(gfx);
+			food.draw(gfx);
 			
 		}
 		else
 		{
 			gfx.setColor(Color.RED);
 			gfx.drawString("Game Over",  180, 150);
-			gfx.drawString("Score:" + token.getScore(), 180, 170);
+			gfx.drawString("Score:" + food.getScore(), 180, 170);
 		}
 		
 		g.drawImage(canvas, 0, 0, null);		
@@ -83,7 +82,7 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 			{
 				snake.move();
 				this.checkGameOVer();
-				token.snakeCollision();
+				food.snakeCollision();
 				this.repaint();
 
 			}

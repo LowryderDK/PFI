@@ -5,12 +5,12 @@ package snake02;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Token {
+public class Food {
 	
 	private int x, y, score;
 	private Snake snake;
 	
-	public Token(Snake s)	//
+	public Food(Snake s)	//
 	{
 		x = (int) (Math.random() * 395);
 		y = (int) (Math.random() * 395);
