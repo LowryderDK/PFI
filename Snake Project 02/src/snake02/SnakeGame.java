@@ -4,8 +4,8 @@ package snake02;
 
 import java.applet.Applet;
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;		//Image class
+import java.awt.Graphics;	//Graphics class library
+import java.awt.Image;		//Image class library
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -16,7 +16,7 @@ import java.awt.event.KeyListener;
 public class SnakeGame extends Applet implements Runnable, KeyListener		
 {
 	
-	Graphics gfx;
+	Graphics gfx;	//Using library to create a graphics variable
 	Image img;		//Image class instance img
 	Thread thread;
 	Snake snake;

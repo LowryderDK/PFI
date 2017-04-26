@@ -81,7 +81,7 @@ public class Snake
 				return false;
 	}
 	
-	
+	//control if snake is currently moving
 	public boolean isMoving()  //So it can be accessed from snake game
 	{
 		return isMoving;
