@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-
 //This application controls size of the application, its background and controls
 
 //implements runnable means using thread
