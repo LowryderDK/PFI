@@ -9,7 +9,9 @@ import java.awt.Image;		//Image class library
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-///lalallalala
+//Vicky er for sej
+//yiiiiir
+
 //This application controls size of the application, its background and controls
 
 //implements runnable means using thread
