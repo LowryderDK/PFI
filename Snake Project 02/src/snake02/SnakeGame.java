@@ -180,5 +180,5 @@ public class SnakeGame extends Applet implements Runnable, KeyListener
 	
 }
 
-//vicky er lider
+//vicky er lider2
 	
