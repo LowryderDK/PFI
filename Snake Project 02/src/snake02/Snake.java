@@ -1,5 +1,6 @@
 //Snake is a list of points that can be modified, when snake runs over target, a point is added and
 //whole list is drawn
+//test
 
 package snake02;
 
@@ -49,7 +50,7 @@ public class Snake
 		{	
 		Point temp = snakePoints.get(0);
 		Point last = snakePoints.get(snakePoints.size() - 1);
-		Point newStart = new Point(temp.getX() + xDir * 4, temp.getY() + yDir * 4);
+		Point newStart = new Point(temp.getX() + xDir * 4, temp.getY() + yDir * 4); 
 		
 		for(int i = snakePoints.size() - 1; i >= 1; i--)	//Snake point becomes the point it was before
 		{
@@ -57,8 +58,8 @@ public class Snake
 		}
 		snakePoints.set(0, newStart);
 		if (elongate) {
-			snakePoints.add(last);
-			elongate = false;
+			snakePoints.add(last); //adds another snakePoint to the last Point
+			elongate = false;	   // and resets elongate to false.
 		}
 		
 
@@ -73,10 +74,10 @@ public class Snake
 	{
 		int x = this.getX();
 		int y = this.getY();
-		for (int i = 1; i < snakePoints.size(); i++) 
+		for (int i = 1; i < snakePoints.size(); i++) 		//looping through each pixel on the snake?
 		{
-			if(snakePoints.get(i).getX() == x && snakePoints.get(i).getY() == y)
-				return true;
+			if(snakePoints.get(i).getX() == x && snakePoints.get(i).getY() == y)	//if any pixel on the snake, is the same as the 
+				return true;														//current x position of the head of the snake -> collision
 		}
 				return false;
 	}
@@ -87,8 +88,8 @@ public class Snake
 		return isMoving;
 	}
 	
-	public void setIsMoving(boolean b)
-	{
+	public void setIsMoving(boolean b) //if b is true then isMoving is set to true 
+	{								   //(which happens in the SnakeGameClass, whenever a key is pressed)
 		isMoving = b;
 		
 	}
@@ -105,8 +106,8 @@ public class Snake
 		return yDir;
 	}
 	
-	public void setXdir(int x)
-	{
+	public void setXdir(int x) //xDir and yDir is set in the snakeGame class when pressing a key. 
+	{							//The value is 0 when it is not moving on that axis
 		xDir = x;
 	}
 	
@@ -126,7 +127,7 @@ public class Snake
 		return snakePoints.get(0).getY();
 	}
 	
-	public void setElongate(boolean b) 
+	public void setElongate(boolean b) // If b is true - elongate is true (which happens in the Token class, when there is collision)
 	{
 		elongate = b;
 	}
