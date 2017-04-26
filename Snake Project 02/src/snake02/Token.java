@@ -1,5 +1,5 @@
 //This class is for the food or 'token' the snake eats
-
+//Test
 package snake02;
 
 import java.awt.Color;

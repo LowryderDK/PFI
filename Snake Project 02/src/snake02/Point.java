@@ -2,7 +2,7 @@
 
 package snake02;
 
-
+//Test
 
 public class Point 
 {
