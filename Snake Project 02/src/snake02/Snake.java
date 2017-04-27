@@ -127,7 +127,7 @@ public class Snake
 		return snakePoints.get(0).getY();
 	}
 	
-	public void setCanAddSquare(boolean b) // If b is true - CanAddSquare is true (which happens in the Token class, when there is collision)
+	public void setCanAddSquare(boolean b) // If b is true - CanAddSquare is true (which happens in the Food class, when there is collision)
 	{
 		CanAddSquare = b;
 	}
